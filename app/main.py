@@ -1,5 +1,6 @@
 import sys
 import os
+import subprocess
 from functools import lru_cache
 
 BUILTIN_COMMANDS = ['echo', 'type', 'exit']
@@ -45,7 +46,11 @@ def main():
                     else: 
                         sys.stdout.write(f"{query}: not found\n")
             case _:
-                sys.stdout.write(f"{line}: command not found\n")
+                exec_path = get_executable(path_directories, command)
+                if exec_path:
+                    subprocess.run([exec_path, *args[1:]])
+                else:
+                    sys.stdout.write(f"{line}: command not found\n")
             
 
 
