@@ -17,10 +17,11 @@ def main():
                 sys.stdout.write(" ".join(args[1:]))
                 sys.stdout.write("\n")
             case 'type':
-                if command in BUILTIN_COMMANDS:
-                    sys.stdout.write(f"{command} is a shell builtin\n")
+                query = args[1]
+                if query in BUILTIN_COMMANDS:
+                    sys.stdout.write(f"{query} is a shell builtin\n")
                 else:
-                    sys.stdout.write(f"{command}: not found\n")
+                    sys.stdout.write(f"{query}: not found\n")
             case _:
                 sys.stdout.write(f"{line}: command not found\n")
             
