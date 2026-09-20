@@ -41,7 +41,7 @@ def main():
                 else:
                     exec_path = get_executable(path_directories, query)
                     if exec_path is not None:
-                        sys.stdout.write(f"{query} is {exec_path}")
+                        sys.stdout.write(f"{query} is {exec_path}\n")
                     else: 
                         sys.stdout.write(f"{query}: not found\n")
             case _:
