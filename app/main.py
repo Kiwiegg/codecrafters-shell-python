@@ -1,5 +1,7 @@
 import sys
 
+BUILTIN_COMMANDS = ['echo', 'type']
+
 
 def main():
     while True:
@@ -11,10 +13,18 @@ def main():
         if line == 'exit':
             break
 
+        if command in BUILTIN_COMMANDS:
+            BUILTIN_COMMANDS[command].run(args)
+
         match command:
             case 'echo':
                 sys.stdout.write(" ".join(args[1:]))
                 sys.stdout.write("\n")
+            case 'type':
+                if command in BUILTIN_COMMANDS:
+                    sys.stdout.write(f"{command} is a shell builtin")
+                else:
+                    sys.stdout.write(f"{command}: not found")
             case _:
                 sys.stdout.write(f"{line}: command not found\n")
             
