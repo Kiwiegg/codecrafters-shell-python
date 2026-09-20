@@ -48,6 +48,7 @@ def main():
             case 'pwd':
                 cwd_str = os.getcwd()
                 sys.stdout.write(cwd_str)
+                sys.stdout.write("\n")
             case _:
                 exec_path = get_executable(path_directories, command)
                 if exec_path:
