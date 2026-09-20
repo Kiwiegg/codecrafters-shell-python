@@ -2,7 +2,6 @@ import sys
 
 BUILTIN_COMMANDS = ['echo', 'type']
 
-
 def main():
     while True:
         sys.stdout.write("$ ")
@@ -12,9 +11,6 @@ def main():
 
         if line == 'exit':
             break
-
-        if command in BUILTIN_COMMANDS:
-            BUILTIN_COMMANDS[command].run(args)
 
         match command:
             case 'echo':
