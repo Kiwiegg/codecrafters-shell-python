@@ -3,7 +3,7 @@ import os
 import subprocess
 from functools import lru_cache
 
-BUILTIN_COMMANDS = ['echo', 'type', 'exit']
+BUILTIN_COMMANDS = ['echo', 'type', 'exit', 'pwd']
 
 @lru_cache(maxsize=50)
 def get_executable(directories, command):
@@ -45,6 +45,9 @@ def main():
                         sys.stdout.write(f"{query} is {exec_path}\n")
                     else: 
                         sys.stdout.write(f"{query}: not found\n")
+            case 'pwd':
+                cwd_str = os.getcwd()
+                sys.stdout.write(cwd_str)
             case _:
                 exec_path = get_executable(path_directories, command)
                 if exec_path:
