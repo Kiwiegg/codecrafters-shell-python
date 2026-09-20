@@ -48,7 +48,7 @@ def main():
             case _:
                 exec_path = get_executable(path_directories, command)
                 if exec_path:
-                    subprocess.run([command, *args[1:]], shell=True)
+                    subprocess.run([command, *args[1:]])
                 else:
                     sys.stdout.write(f"{line}: command not found\n")
             
