@@ -18,7 +18,7 @@ def get_executable(directories, command):
     return None
 
 def main():
-    path_directories = os.environ.get("PATH", "").split(os.pathsep)
+    path_directories = tuple(os.environ.get("PATH", "").split(os.pathsep))
 
 
     while True:
