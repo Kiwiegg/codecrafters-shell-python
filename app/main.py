@@ -18,9 +18,9 @@ def main():
                 sys.stdout.write("\n")
             case 'type':
                 if command in BUILTIN_COMMANDS:
-                    sys.stdout.write(f"{command} is a shell builtin")
+                    sys.stdout.write(f"{command} is a shell builtin\n")
                 else:
-                    sys.stdout.write(f"{command}: not found")
+                    sys.stdout.write(f"{command}: not found\n")
             case _:
                 sys.stdout.write(f"{line}: command not found\n")
             
